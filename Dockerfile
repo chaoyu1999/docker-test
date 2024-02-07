@@ -47,14 +47,14 @@ ENV XDG_CACHE_HOME=/tmp/edge
 ENV BYPASS_SERVER=http://localhost:8080
 
 # 第二阶段：使用 Ubuntu 镜像作为基础镜像
-FROM ubuntu:latest AS final
+FROM ubuntu:20.04 AS final
 
 # 设置工作目录
 WORKDIR /app
 
 # 安装其他依赖项和配置 Ubuntu
 RUN apt-get update && \
-    apt-get install -y curl wget gpg tar
+    apt-get install -y curl wget gpg tar lsb-release
 
 # 安装 CloudFlare WARP
 RUN curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg && \
