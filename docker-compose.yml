@@ -1,0 +1,10 @@
+services:
+  go-proxy-bingai:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - HEADLESS=false
+      - PASS_TIMEOUT=10
+    ports:
+      - 8080:7860
