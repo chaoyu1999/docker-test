@@ -42,7 +42,7 @@ ENV PROXY_SERVER=http://localhost:10808
 
 ENV HTTP_PROXY=http://localhost:10808
 ENV HTTPS_PROXY=http://localhost:10808
-
+ENV CF_ZERO_TRUST_TOKEN=asddasdasddas
 EXPOSE 7860
 
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisor.conf
