@@ -5,6 +5,15 @@ services:
       dockerfile: Dockerfile
     environment:
       - HEADLESS=false
-      - PASS_TIMEOUT=10
+      - PASS_TIMEOUT=5
     ports:
-      - 8080:7860
+      - 7860:7860
+      - 8080:8080
+      - 9005:9005
+
+  cloudflared:
+    build: 
+      context: .
+      dockerfile: Dockerfile-cloudflared
+    container_name: cloudflared
+    command: /usr/bin/cloudflared tunnel --no-autoupdate run --token $CF_ZERO_TRUST_TOKEN
